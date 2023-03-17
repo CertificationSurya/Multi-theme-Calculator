@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator- Calculate the Numbers</title>
+
+    <!-- Manual Components -->
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <script type="text/javascript" src="script.js" defer></script>
+</head>
+<body class="theme-one">
+
+    <noscript>
+        Calculator won't work because you have disabled script either willingly or is not supported by browser.
+    </noscript>
+
+    <main class="container">
+        <section class="container__top">
+            <h1 class="title">
+                Calc
+            </h1>
+
+            <div class="themes">
+                <p>THEME</p>
+                <h1 class="visually-hidden">Toggle for Adjusting Theme</h1>
+                <div class="themes__container">
+                    <span class="themes__list">
+                        <p class="themeNo active">1</p>
+                        <p class="themeNo">2</p>
+                        <p class="themeNo">3</p>
+                    </span>
+                    <span class="themes__toggle">
+                        <button class="circle 1 active"></button>
+                        <button class="circle 2 "></button>
+                        <button class="circle 3"></button>
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <section class="container__mid">
+            <div><p class="previous"></p></div>
+            <div><p class="current"></p></div>
+        </section>
+
+        <section class="container__bottom">
+            <div class="row">
+                <button data-number aria-label="Number 7" role="Button for input">7</button>
+                <button data-number aria-label="Number 8" role="Button for input">8</button>
+                <button data-number aria-label="Number 9" role="Button for input">9</button>
+                <button data-deleteF onclick="deleteMe()" class="text-func del-reset">DEl</button>
+            </div>
+
+            <div class="row">
+                <button data-number aria-label="Number 4" role="Button for input">4</button>
+                <button data-number aria-label="Number 5" role="Button for input">5</button>
+                <button data-number aria-label="Number 6" role="Button for input">6</button>
+                <button data-operator>+</button>
+            </div>
+
+            <div class="row">
+                <button data-number aria-label="Number 1" role="Button for input">1</button>
+                <button data-number aria-label="Number 2" role="Button for input">2</button>
+                <button data-number aria-label="Number 3" role="Button for input">3</button>
+                <button data-operator>-</button>
+            </div>
+
+            <div class="row">
+                <button data-number aria-label="Floating point" role="Button for input">.</button>
+                <button data-number aria-label="Number 0" role="Button for input">0</button>
+                <button data-operator>/</button>
+                <button data-operator>x</button>
+            </div>
+
+            <div class="row">
+                <button data-reset class="text-func del-reset | span-2">RESET</button>
+                <button data-equals onclick="equals()" class="text-func | span-2">=</button>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

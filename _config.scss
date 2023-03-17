@@ -1,0 +1,100 @@
+$theme-one : (
+    // Background Colors
+    main-bg: hsl(222, 26%, 31%),
+    toggle-bg: hsl(223, 31%, 20%),
+    screen-bg: hsl(224, 36%, 15%),
+
+    // Keys Backgrounds
+    key-del-reset-bg:  hsl(225, 21%, 49%),
+    key-del-reset-shadow: hsl(224, 28%, 35%),
+    
+    key-equal-toggle: hsl(6, 63%, 50%),
+    key-equal-shadow: hsl(6, 70%, 34%),
+
+    key-num-bg : hsl(30, 25%, 89%),
+    key-num-shadow : hsl(28, 16%, 65%),
+
+    // Texts
+    key-digit:  hsl(30, 25%, 89%),
+    text-values: hsl(221, 14%, 31%),
+    text-functions: hsl(0, 0%, 100%),
+
+    // Only had to add due to Variance in Theme no.2 
+    text-equals: hsl(0, 0%, 100%)
+    );
+
+    $theme-two: (
+        // Background Colors
+        main-bg: hsl(0, 0%, 90%),
+        toggle-bg: hsl(0, 5%, 81%),
+        screen-bg: hsl(0, 0%, 93%),
+    
+        // Keys Backgrounds
+        key-del-reset-bg:  hsl(185, 42%, 37%),
+        key-del-reset-shadow: hsl(185, 58%, 25%),
+        
+        key-equal-toggle: hsl(25, 98%, 40%),
+        key-equal-shadow:  hsl(25, 99%, 27%),
+    
+        key-num-bg : hsl(45, 7%, 89%),
+        key-num-shadow : hsl(35, 11%, 61%),
+    
+        // Texts
+        key-digit: hsl(60, 10%, 19%),
+        text-values:  hsl(60, 10%, 19%),
+        text-functions: hsl(0, 0%, 100%),
+        text-equals: hsl(0, 0%, 100%)
+    );
+   
+    $theme-three: (
+        // Background Colors
+        main-bg: hsl(268, 75%, 9%),
+        toggle-bg: hsl(268, 71%, 12%),
+        screen-bg: hsl(0, 0%, 93%),
+    
+        // Keys Backgrounds
+        key-del-reset-bg:  hsl(281, 89%, 26%),
+        key-del-reset-shadow: hsl(285, 91%, 52%),
+        
+        key-equal-toggle: hsl(176, 100%, 44%),
+        key-equal-shadow:  hsl(177, 92%, 70%),
+    
+        key-num-bg : hsl(268, 47%, 21%),
+        key-num-shadow : hsl(290, 70%, 36%),
+    
+        // Texts
+        key-digit: hsl(52, 100%, 62%),
+        text-values:  hsl(52, 100%, 62%),
+        text-functions: hsl(0, 0%, 100%),
+        
+        // Don't know what does this variable for 
+        // Okay I figured it it's for = sign
+        text-equals: hsl(198, 20%, 13%)
+    );
+
+   
+    @mixin center (){
+       display: grid;
+       place-content: center;
+    }
+    @mixin gap($Row-gap, $column-gap){
+        gap: #{$Row-gap}rem #{$column-gap}rem;
+    }
+
+    @mixin flex($direction,$justify){
+        display: flex;
+        flex-direction: $direction;
+        justify-content: $justify;
+    }
+
+    @mixin br($size){
+        border-radius: $size;
+    }
+
+
+    // fonts for display Number
+    $font-num: 1.9em;
+    $font-preNum: 1.2rem;
+
+    // Font-family
+    $ff : 'League Spartan', sans-serif;
