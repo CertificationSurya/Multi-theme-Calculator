@@ -10,7 +10,7 @@
 
     // Creating Css variable in different themes
 
-body.theme-one{
+body.theme-0{
     background-color: color(--main-bg);
 
 
@@ -20,7 +20,7 @@ body.theme-one{
 
 }
 
-body.theme-two{
+body.theme-1{
     background-color: color(--main-bg);
     
     @each $keys, $values in $theme-two {
@@ -28,7 +28,7 @@ body.theme-two{
     }
 }
 
-body.theme-three{
+body.theme-2{
     background-color: color(--main-bg);
 
     @each $keys, $values in $theme-three {
@@ -134,28 +134,32 @@ body{
     }
 
     &> p{
-        align-self: flex-end;
-        padding: 0 0.5em;
+        align-self: end;
+        padding: 0.2rem 0.5em;
     }
     
     &__toggle{
         @include flex(row, center);
         background-color: color(--toggle-bg);
-        padding: 0.4rem 0.4rem;
+        width: 4rem;
+        height: 1.5rem;
         cursor: pointer;
+        position: relative;
         
-        .circle{
+        .theme-selector{
             @include br(50%);
-            height: 10px;
-            width: 10px;
-            margin: 0 0.2rem;
+            margin-inline:  0.5rem;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            height: 0.875rem;
+            width: 0.875rem;
             background-color: color(--key-equal-toggle);
-            
-            &.active{
-                transition: 0.25s ease-in-out;
-                scale: 1.25;
-            }
+            transition: 0.35s ease all;
+
         }
+        
     }
 }
 
@@ -171,7 +175,7 @@ body{
     .previous{
         font-size: $font-preNum;
         height: 20px;
-        padding: 0.15rem 0;
+        padding-inline: 0.15rem ;
     }
     .current{
         font-size: $font-num;
@@ -189,7 +193,6 @@ body{
     .row{
         @include center;
         @include gap(0, 1);
-        // width: inherit;
         grid-template-columns: repeat(4, 1fr);
         
     }
@@ -232,7 +235,6 @@ body{
         box-shadow: inset 0px -2.5px 0px 0 color(--key-equal-shadow);
         background-color: color(--key-equal-shadow);
     }
-// }
 }
 
 @media screen and (max-width: 425px) {

@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=League+Spartan:wght@700&family=Manrope:wght@800&family=Space+Grotesk:wght@500&display=swap");
-body.theme-one {
+body.theme-0 {
   background-color: var(--main-bg);
   --main-bg: hsl(222, 26%, 31%);
   --toggle-bg: hsl(223, 31%, 20%);
@@ -16,7 +16,7 @@ body.theme-one {
   --text-equals: hsl(0, 0%, 100%);
 }
 
-body.theme-two {
+body.theme-1 {
   background-color: var(--main-bg);
   --main-bg: hsl(0, 0%, 90%);
   --toggle-bg: hsl(0, 5%, 81%);
@@ -33,7 +33,7 @@ body.theme-two {
   --text-equals: hsl(0, 0%, 100%);
 }
 
-body.theme-three {
+body.theme-2 {
   background-color: var(--main-bg);
   --main-bg: hsl(268, 75%, 9%);
   --toggle-bg: hsl(268, 71%, 12%);
@@ -136,27 +136,30 @@ body {
   gap: 0.5rem 0.5rem;
 }
 .themes > p {
-  align-self: flex-end;
-  padding: 0 0.5em;
+  align-self: end;
+  padding: 0.2rem 0.5em;
 }
 .themes__toggle {
   display: flex;
   flex-direction: row;
   justify-content: center;
   background-color: var(--toggle-bg);
-  padding: 0.4rem 0.4rem;
+  width: 4rem;
+  height: 1.5rem;
   cursor: pointer;
+  position: relative;
 }
-.themes__toggle .circle {
+.themes__toggle .theme-selector {
   border-radius: 50%;
-  height: 10px;
-  width: 10px;
-  margin: 0 0.2rem;
+  margin-inline: 0.5rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  height: 0.875rem;
+  width: 0.875rem;
   background-color: var(--key-equal-toggle);
-}
-.themes__toggle .circle.active {
-  transition: 0.25s ease-in-out;
-  scale: 1.25;
+  transition: 0.35s ease all;
 }
 
 .container__mid {
@@ -167,7 +170,7 @@ body {
 .container__mid .previous {
   font-size: 1.2rem;
   height: 20px;
-  padding: 0.15rem 0;
+  padding-inline: 0.15rem;
 }
 .container__mid .current {
   font-size: 1.9em;

@@ -1,30 +1,24 @@
 // const { prependListener } = require("gulp");
 
 let theme ={
-    1: "theme-one",
-    2: "theme-two",
-    3: "theme-three"
+    0: "theme-one",
+    1: "theme-two",
+    2: "theme-three"
 };
 
-let themeToggle = document.querySelectorAll('.circle');
-let body = document.querySelector('body');
+const themeToggle = document.querySelector('.theme-selector');
+const body = document.querySelector('body');
+let themeNum =0;
 
 // Adding event Listener to every toggle
-themeToggle.forEach(item=> item.addEventListener('click',()=>{
-   
-    themeToggle.forEach(circle=> circle.classList.remove("active"));
-    item.classList.add("active");
-    
+function themeChanger(){
+    console.log("hi")
+    themeNum<2? themeNum++ : themeNum = 0;
+
     body.removeAttribute("class");
-
-    for(let key in theme) {
-        console.log(key)
-        if(item.classList.contains(`${key}`)){
-            body.setAttribute("class", `${theme[key]}`);
-        }
-    }
-
-}))
+    body.setAttribute("class", `theme-${themeNum}`);
+    themeToggle.style.left = `${themeNum}rem`;
+}
 
 
 
@@ -51,13 +45,11 @@ class Calculator{
 
     deleteF(){
         this.currentOperand= this.currentOperand.slice(0,-1);
-        // console.log("hello")
-        
     }
 
     
     OurOperation(operator){
-        // It will check if num ends with "." if yes then discard it.
+        // It will check if num ends with "." but have no value after that. if yes then discard it.
         if(this.currentOperand.charAt(this.currentOperand.length-1)=="."){
             this.currentOperand= this.currentOperand.slice(0,-1);
         }
@@ -70,9 +62,9 @@ class Calculator{
             return;
         }
         
-        // let operateReg = /(-|\+|\*|\/)/g;
+        
         if(this.previousOperand.match(/(-|\+|\x|\/)/g)!=null) {
-            console.log(previousOperandText.innerText)
+            // console.log(previousOperandText.innerText)
             this.operator = operator;
             this.previousOperand = this.previousOperand.slice(0,-1) + this.operator;
             
