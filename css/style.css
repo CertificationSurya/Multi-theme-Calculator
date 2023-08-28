@@ -50,7 +50,9 @@ body.theme-2 {
   --text-equals: hsl(198, 20%, 13%);
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   border-radius: 5px;
   margin: 0;
   padding: 0;
@@ -78,7 +80,10 @@ button {
   font-size: 1.25em;
 }
 
-noscript, h1, p, .text-func {
+noscript,
+h1,
+p,
+.text-func {
   color: var(--key-digit);
 }
 
@@ -169,11 +174,14 @@ body {
 }
 .container__mid .previous {
   font-size: 1.2rem;
-  height: 20px;
+  height: 25px;
   padding-inline: 0.15rem;
+  padding-block: 0.3rem;
 }
 .container__mid .current {
   font-size: 1.9em;
+  padding-block: 0.1rem;
+  word-break: break-all;
 }
 
 .container__bottom {
@@ -195,12 +203,14 @@ body {
   width: calc(100% - min(1.2rem, 7%));
 }
 
-[data-number], [data-operator] {
+[data-number],
+[data-operator] {
   color: var(--text-values);
   box-shadow: inset 0px -2.5px 0px 0 var(--key-num-shadow);
   background-color: var(--key-num-bg);
 }
-[data-number]:hover, [data-operator]:hover {
+[data-number]:hover,
+[data-operator]:hover {
   background-color: var(--key-num-shadow);
 }
 

@@ -1,0 +1,247 @@
+// Setup
+@use "./subModuleScss/config" as *;
+
+//Imports
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=League+Spartan:wght@700&family=Manrope:wght@800&family=Space+Grotesk:wght@500&display=swap");
+
+@function color($VarColor) {
+  @return var($VarColor);
+}
+
+// Creating Css variable in different themes
+
+body.theme-0 {
+  background-color: color(--main-bg);
+
+  @each $keys, $values in $theme-one {
+    --#{$keys}: #{$values};
+  }
+}
+
+body.theme-1 {
+  background-color: color(--main-bg);
+
+  @each $keys, $values in $theme-two {
+    --#{$keys}: #{$values};
+  }
+}
+
+body.theme-2 {
+  background-color: color(--main-bg);
+
+  @each $keys, $values in $theme-three {
+    --#{$keys}: #{$values};
+  }
+}
+
+// pre-style
+*,
+*::before,
+*::after {
+  @include br(5px);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $ff;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  width: 70px;
+  height: 40px;
+  transition: 0.15s ease-in;
+  font-size: 1.25em;
+}
+
+// utility
+noscript,
+h1,
+p,
+.text-func {
+  color: color(--key-digit);
+}
+
+// Post-styles
+
+noscript {
+  color: color(--text-functions);
+  font-size: $font-num;
+  text-align: center;
+}
+
+body {
+  @include center;
+  height: 100vh;
+  color: color(--text-number-bg);
+}
+
+// container and parents..
+
+.container {
+  width: min(30rem, 98vw);
+  @include flex(column, none);
+  gap: 1rem;
+  padding: 1rem;
+
+  #{&}__top {
+    @include flex(row, space-between);
+
+    .title {
+      align-self: self-end;
+      line-height: 1.5rem;
+    }
+  }
+
+  #{&}__mid {
+    min-height: 4rem;
+  }
+
+  #{&}__bottom {
+    @include center;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+    width: 100%;
+  }
+}
+
+// childs
+
+.themes {
+  @extend .container__top;
+
+  &__container {
+    @include flex(column, center);
+  }
+
+  &__list {
+    @include flex(row, center);
+    @include gap(0.5, 0.5);
+  }
+
+  & > p {
+    align-self: end;
+    padding: 0.2rem 0.5em;
+  }
+
+  &__toggle {
+    @include flex(row, center);
+    background-color: color(--toggle-bg);
+    width: 4rem;
+    height: 1.5rem;
+    cursor: pointer;
+    position: relative;
+
+    .theme-selector {
+      @include br(50%);
+      margin-inline: 0.5rem;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      height: 0.875rem;
+      width: 0.875rem;
+      background-color: color(--key-equal-toggle);
+      transition: 0.35s ease all;
+    }
+  }
+}
+
+// Container-mid
+
+.container__mid {
+  text-align: right;
+  padding-right: 1rem;
+  background-color: color(--toggle-bg);
+
+  .previous {
+    font-size: $font-preNum;
+    height: 25px;
+    padding-inline: 0.15rem;
+    padding-block: 0.3rem;
+  }
+  .current {
+    font-size: $font-num;
+    padding-block: 0.1rem;
+    word-break: break-all;
+  }
+}
+
+//  Container bottom
+.container__bottom {
+  background-color: color(--toggle-bg);
+  padding: 1.25rem 0.75rem 1.25rem 1.25rem;
+  justify-content: center;
+  margin: auto;
+  color: color(--text-values);
+  .row {
+    @include center;
+    @include gap(0, 1);
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.span-2 {
+  grid-column: span 2;
+  width: calc(100% - min(1.2rem, 7%));
+}
+
+[data-number],
+[data-operator] {
+  color: color(--text-values);
+  box-shadow: inset 0px -2.5px 0px 0 color(--key-num-shadow);
+  background-color: color(--key-num-bg);
+
+  &:hover {
+    background-color: color(--key-num-shadow);
+  }
+}
+
+.del-reset {
+  color: color(--text-functions);
+  background-color: color(--key-del-reset-bg);
+  box-shadow: inset 0px -2.5px 0 0 color(--key-del-reset-shadow);
+
+  &:hover {
+    background-color: color(--key-del-reset-shadow);
+    box-shadow: inset 0px -2.5px 0px 0 color(--key-del-reset-shadow);
+  }
+}
+
+[data-equals] {
+  color: color(--text-equals);
+  box-shadow: inset 0px -2.5px 0px 0 color(--key-equal-shadow);
+  background-color: color(--key-equal-toggle);
+
+  &:hover {
+    box-shadow: inset 0px -2.5px 0px 0 color(--key-equal-shadow);
+    background-color: color(--key-equal-shadow);
+  }
+}
+
+@media screen and (max-width: 425px) {
+  button {
+    width: 57px;
+    height: 60px;
+  }
+  .span-2 {
+    height: 55px;
+    width: calc(100% - min(9%, 1rem));
+  }
+
+  .row {
+    @include gap(0, 0);
+  }
+}

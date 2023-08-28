@@ -11,6 +11,8 @@
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-sass": "^5.1.0",
-    "sass": "^1.58.3"
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "sass": "^1.58.3",
+    "typescript": "^5.2.2"
   }
 }
